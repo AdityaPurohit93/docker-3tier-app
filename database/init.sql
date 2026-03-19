@@ -1,0 +1,23 @@
+CREATE DATABASE IF NOT EXISTS appdb;
+
+USE appdb;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+INSERT INTO users (name) VALUES ('Demo User 1');
+INSERT INTO users (name) VALUES ('Demo User 2');
+INSERT INTO users (name) VALUES ('Demo User 3');
+
+CREATE TABLE IF NOT EXISTS logs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    message VARCHAR(500) NOT NULL,
+    level VARCHAR(50) DEFAULT 'INFO',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO logs (message, level) VALUES ('Database initialized successfully', 'INFO');
